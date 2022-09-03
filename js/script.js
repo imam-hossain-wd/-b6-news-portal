@@ -1,4 +1,5 @@
-const newsCategories = (news) => {
+
+const newsCategories = () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
     .then(res => res.json())
@@ -20,25 +21,50 @@ const displayNewsCategories = (categories) => {
     const arts = categories[6].category_name;
     const all = categories[7].category_name;
 
-    const categoryContainer = document.getElementById('category-container');
-    const div = document.createElement('div');
-    div.classList.add('d-flex', 'justify-content-between')
-       
-     div.innerHTML=`
-            <a href="">Home</a>
-            <a href="">${breaking}</a>
-            <a href="">${regular}</a>
-            <a href="">${international}</a>
-            <a href="">${sports}</a>
-            <a href="">${entertainment}</a>
-            <a href="">${culture}</a>
-            <a href="">${arts}</a>
-            <a href="">${all}</a>
-            <a href="">null</a>   `
 
-    categoryContainer.appendChild(div);
+    const navContainer = document.getElementById('nav-container');
+    const ul = document.createElement('ul');
+    ul.classList.add('navbar-nav', 'justify-content-between', 'w-100', 'mb-2', 'mb-lg-0')
+
+    
+   
+     ul.innerHTML=`
+
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">Home</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${breaking}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${regular}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${international}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${sports}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${entertainment}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${culture}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${arts}</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">${all}</a>
+    </li>     `
+
+    navContainer.appendChild(ul)
 
 }
+
+
+
+
 
 newsCategories();
 
