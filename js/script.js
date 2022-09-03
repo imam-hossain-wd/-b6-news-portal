@@ -1,5 +1,4 @@
-
-const newsCategories = () => {
+const categoriesNews = () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
     .then(res => res.json())
@@ -7,64 +6,91 @@ const newsCategories = () => {
 }
 
 
-const displayNewsCategories = (categories) => {
-
-
-    // all news category name store
-
-    const breaking = categories[0].category_name;
-    const regular = categories[1].category_name;
-    const international = categories[2].category_name;
-    const sports = categories[3].category_name;
-    const entertainment = categories[4].category_name;
-    const culture = categories[5].category_name;
-    const arts = categories[6].category_name;
-    const all = categories[7].category_name;
-
-
-    const navContainer = document.getElementById('nav-container');
-    const ul = document.createElement('ul');
-    ul.classList.add('navbar-nav', 'justify-content-between', 'w-100', 'mb-2', 'mb-lg-0')
-
-    
+const displayNewsCategories = (news) => {
    
-     ul.innerHTML=`
+    // dynamically navbar added
+const navContainer = document.getElementById('nav-container');
 
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">Home</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${breaking}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${regular}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${international}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${sports}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${entertainment}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${culture}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${arts}</a>
-    </li>
-     <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">${all}</a>
-    </li>     `
+news.forEach(data => {
+    const li = document.createElement('li');
+    li.classList.add("nav-item");
+    const a = document.createElement('a');
+    a.classList.add('nav-link');
+    a.innerText= data.category_name;
+    a.setAttribute("aria-current", "page")
+    a.setAttribute('href', "#")
 
-    navContainer.appendChild(ul)
+    li.appendChild(a);
+
+    navContainer.appendChild(a)
+     
+});
 
 }
 
+categoriesNews();
+
+
+
+const newsItem = () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/01`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayNewsItems(data.data))
+}
+
+const displayNewsItems = (items) => {
+
+    const newsItems = document.getElementById('news-items-container');
+
+    items.forEach(item => {
+        console.log(item);
+
+        const div = document.createElement('div');
+        div.classList.add('card', 'mb-3');
+        div.setAttribute('style','max-width:90%');
+
+
+        div.innerHTML= `
+        
+                 <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="${item.thumbnail_url}" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">${item.title}</h5>
+                          <p class="card-text text-muted">${item.details.slice(0,300)}</p>
 
 
 
 
-newsCategories();
+                          <div>
 
+                          <div>
+                          <img class="rounded w-50 img-fluid" src="${item.author.img}">
+                          <p>${item.author.name}</p>
+                          </div>
+
+                          <div></div>
+                          <div></div>
+                          
+                          </div>
+                         
+                        </div>
+
+
+                      </div>
+                    </div>
+        
+        
+        
+        `
+
+        newsItems.appendChild(div);
+        
+        
+    });
+
+}
+newsItem();
