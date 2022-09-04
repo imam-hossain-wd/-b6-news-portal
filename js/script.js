@@ -265,8 +265,8 @@ function displayNewsInitShow(){
                                       </div>
 
                                       <div>
-                                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                      See News Details
+                                      <button type="button" class="btn color-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      Read More
                                       </button>
                                       </div>
                                   </div>
