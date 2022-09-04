@@ -1,5 +1,5 @@
-*{
-
+body{
+    background-color: #f6f6f7;
 }
 
 main{
@@ -9,3 +9,25 @@ main{
     background-color: #5D5FEF;
 }
 
+
+#spinner-load{
+    text-align: center!important;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%)
+
+}
+
+
+.count-style , footer{
+    background-color: #fff;
+}
+
+
+
+.fa-brands{
+    font-size:20px;
+    margin:10px;
+    
+}

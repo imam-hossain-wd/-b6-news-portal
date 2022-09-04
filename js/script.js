@@ -38,7 +38,7 @@ const displaySnipperLoader = (showHide) => {
 
 
 
-const wordCount  = (words) => {
+const CountWords  = (words) => {
   const countWord = words.split(' ');
   if(countWord.length > 80){
       return  countWord.slice(0, 80).join(' ') + ' ... ' ;
@@ -111,7 +111,7 @@ function newsDisplay(allnews){
                               <div class="col-md-9">
                               <div class="card-body pe-5 pt-4">
                                   <h5 class="card-title fw-bold">${news.title}</h5>
-                                  <p class="card-text text-muted" >${wordCount(news.details)}</p>
+                                  <p class="card-text text-muted" >${CountWords(news.details)}</p>
                                   
                                   <div class="d-flex justify-content-between flex-wrap gap-4 gap-lg-0">
                                   <div>
@@ -227,7 +227,7 @@ function displayNewsInitShow(){
           if(a.total_view>b.total_view) return -1;
           if(b.total_view>a.total_view) return 1
       })
-      for(data of datas.data){
+      for(data of data.data){
           const createDiv = document.createElement('div');
           createDiv.className = 'card mb-3';
           createDiv.innerHTML = `
@@ -238,7 +238,7 @@ function displayNewsInitShow(){
                                   <div class="col-md-9">
                                   <div class="card-body pe-5 pt-4">
                                       <h5 class="card-title fw-bold">${data.title}</h5>
-                                      <p class="card-text text-muted" >${wordCount(data.details)}</p>
+                                      <p class="card-text text-muted" >${CountWords(data.details)}</p>
                                       
                                   <div class="d-flex justify-content-between flex-wrap gap-4 gap-lg-0">
                                       <div>
