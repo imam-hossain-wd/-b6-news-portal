@@ -227,7 +227,7 @@ function displayNewsInitShow(){
           if(a.total_view>b.total_view) return -1;
           if(b.total_view>a.total_view) return 1
       })
-      for(data of data.data){
+      for(data of datas.data){
           const createDiv = document.createElement('div');
           createDiv.className = 'card mb-3';
           createDiv.innerHTML = `
