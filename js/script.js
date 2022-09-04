@@ -17,31 +17,25 @@ const allCategory = (news) =>{
     <a class="nav-link category-nav-item" category="${category.category_id}" href="#">${category.category_name}</a>
     `;
     document.getElementById('category-container').appendChild(createItem);
-    
-  });
-
-
-
-
+ });
 }
 
-
-
-
-  
-  
-
 categoryNewsLoader()
+
+// snipper
 
 const showHideSpin = (showHide) => {
   if(showHide){
       document.getElementById('spinner-load').classList.remove('d-none')
-
-  }else{
+  }
+  else{
       document.getElementById('spinner-load').classList.add('d-none')
-
   }
 }
+
+
+
+
 const wordCount  = (words) => {
   const countWord = words.split(' ');
   if(countWord.length > 80){
@@ -51,11 +45,14 @@ const wordCount  = (words) => {
       return words
   }
 }
-function findNews () {    
+
+
+function NewsGet () {    
       document.addEventListener('click', function(e){
 
         if(e.target.hasAttribute('category')){
           const index = e.target.getAttribute('category')
+          showHideSpin(true)
         
           const url = `https://openapi.programming-hero.com/api/news/category/${index}`;
 
@@ -72,6 +69,7 @@ function findNews () {
           }
          
           showNews(data.data);
+          showHideSpin(false)
 
          })
          .catch(err => console.log(err))
@@ -196,7 +194,8 @@ function getCategoryName(id){
   })
   .catch(err => console.log(err))
 }
-findNews();
+
+NewsGet();
 
 function initShowNews(){
   showHideSpin(true)
@@ -250,9 +249,14 @@ function initShowNews(){
                                           <span class="fw-bold">${data.total_view ? data.total_view : 'No view yet' }</span>
                                           </div>
                                       </div>
+
                                       <div>
-                                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
                                       </div>
+
                                       <div>
                                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                       See News Details
