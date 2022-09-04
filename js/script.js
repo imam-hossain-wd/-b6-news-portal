@@ -20,11 +20,13 @@ const allCategory = (news) =>{
  });
 }
 
-categoryNewsLoader()
+categoryNewsLoader();
 
-// snipper
 
-const showHideSpin = (showHide) => {
+
+// loader snipper function 
+
+const displaySnipperLoader = (showHide) => {
   if(showHide){
       document.getElementById('spinner-load').classList.remove('d-none')
   }
@@ -47,12 +49,15 @@ const wordCount  = (words) => {
 }
 
 
+// get news function 
+
+
 function NewsGet () {    
       document.addEventListener('click', function(e){
 
         if(e.target.hasAttribute('category')){
           const index = e.target.getAttribute('category')
-          showHideSpin(true)
+          displaySnipperLoader(true)
         
           const url = `https://openapi.programming-hero.com/api/news/category/${index}`;
 
@@ -68,8 +73,8 @@ function NewsGet () {
               document.getElementById('news-category').innerText = e.target.innerText;
           }
          
-          showNews(data.data);
-          showHideSpin(false)
+          newsDisplay(data.data);
+          displaySnipperLoader(false)
 
          })
          .catch(err => console.log(err))
@@ -84,7 +89,9 @@ function NewsGet () {
  
 }
 
-function showNews(allnews){
+// showing display news
+
+function newsDisplay(allnews){
   const getNewNumber = allnews.length;
   if(allnews.length == 0){
       document.getElementById('news-number').innerText = 'No News found for'
@@ -197,8 +204,8 @@ function getCategoryName(id){
 
 NewsGet();
 
-function initShowNews(){
-  showHideSpin(true)
+function displayNewsInitShow(){
+  displaySnipperLoader(true)
   fetch('https://openapi.programming-hero.com/api/news/category/08')
   .then(res => res.json())
   .then(datas =>{
@@ -311,6 +318,6 @@ function initShowNews(){
           document.getElementById('news-container').appendChild(createDiv);
       }
   })
-  showHideSpin(false)
+  displaySnipperLoader(false)
 }
-initShowNews();
+displayNewsInitShow();
