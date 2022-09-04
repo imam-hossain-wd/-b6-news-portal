@@ -3,101 +3,96 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> International news</title>
-
-       <!--------Bootstrap cdn link------------------------>
+    <title> International News Portal</title>
+    
+        <!-- Bootstrap CDN Link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
-         <!------------- stylesheet link ----------------->
-    <link rel="stylesheet" href="/style/style.css">
-
+      <!-- css stylesheet -->
+      <link rel="stylesheet" href="style/style.css">
 
   </head>
   <body>
     <header>
-        <!------------------------ navbar section ----------------------->
 
-          <section>
-                 <nav class="navbar navbar-expand-lg">
-                    <div class="container py-4  border-bottom border-grey">
-                        <a class="navbar-brand text-primary fw-bold" href="#"> <span class="text-white bg-primary px-2 py-1 rounded">News</span> House</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link active border-b-4 border-b-blue-600" aria-current="page" href="index2.html" target ="_blank">Blog</a>
-                            </li>
-                       </ul>
-                      </div>
-                   </div>
-                </nav>
-          </section>
+            <!------ -navbar section  ------->
 
-          
+        <section>
+          <nav class="navbar navbar-expand-lg">
+            <div class="container py-4  border-bottom border-grey">
+              <a class="navbar-brand text-primary fw-bold" href="#"> <span class="text-white bg-primary px-2 py-1 rounded">News</span> King</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index2.html">Blog</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                <ul class="navbar-nav justify-content-between w-100 mb-2 mb-lg-0" id="category-container">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-                    <!------- news categories section --------------->
+        </section>
 
-
-              <section>
-                  <nav class="navbar navbar-expand-lg">
-                    <div  class="container ">
-                        <ul id="nav-container" class='navbar-nav justify-content-between w-100 mb-2 mb-lg-0'></ul>
-                    </div>
-                  </nav>
-              </section>
-             
- </header>
+    </header>
 
 
 
+ 
 
-             <!-------- main body section ------------>
 
+              <!--------  Main body section ---------->
+    
     <main>
 
-
-                 <!-------- Show News items categories section -------->
+              <!-- count news items and diplay -->
 
         <section class="py-4">
             <div class="container p-3 rounded" style="background-color: #ffffff;">
                 <div class="row">
                     <div class="col">
-                        <h4 class="mb-0"> <span id="news-number"></span> No items found for this category <span id="news-category"></span> </h4>
+                        <h4 class="mb-0" id="news-show"> <span id="news-number"> items found for category</span>  <span id="news-category">All News</span> </h4>
                     </div>
                 </div>
             </div>
         </section>
 
-        
+        <!---- todays pick section ---------------->
 
-
-
-        <!------- Trending option section ------------->
-        
         <section class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6 text-center text-sm-center text-lg-start">
                         <h6 class="d-inline">Sort By View:</h6>
                         <div class="btn-group ms-2">
                             <button type="button" style="background-color:#ffffff ;" class="btn dropdown-toggle px-3" data-bs-toggle="dropdown" aria-expanded="false">
-                              Action
+                              Default
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Separated link</a></li>
+                              <li><a class="dropdown-item" id="most-views">Most Views</a></li>
                             </ul>
                           </div>
                     </div>
-                    <div class="col-6 text-end">
+                    <div class="col-md-6 mt-3 mt-lg-0 text-center text-sm-center text-lg-end">
                         <button class="btn btn-primary d-inline px-3">Today's Pick</button>
                         <button class="btn d-inline border border-primary px-3">Trending</button>
                     </div>
@@ -105,54 +100,61 @@
             </div>
         </section>
 
-
-        <!----------------- News Showing Section ------------------------->
-
+        <!-------display  News Section ------------------->
 
         <section class="py-4">
-            <div id="news-items-container" class="container">
-                <div class="card mb-3" style="max-width: 90%;">
-                    
-
-                  </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="news-container">
+                     
+                    </div>
+                </div>
             </div>
-
         </section>
 
-        
 
+         <!-------- snipper loader section --------------->
 
+        <section class="py-4 text-center d-none" id="spinner-load" style="
+                        text-align: center!important;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        ">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
           </div>
-        
+        </section>
+    </main>
+    
+    <!----- Footer  section -------------------->
 
-   </main>
-
-
-
-    <!------------------ footer start------------------>
     <footer class="py-4" style="background-color: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
                     <h6 class="text-muted">
-                        Copyright 2021 International news Portal
+                        Copyright 2022 by International News Portal
                     </h6>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-------------- footer end ----------------->
 
-
-
-    <!---------------- scripts------------------->
-    <script src="https://kit.fontawesome.com/ff2986a973.js" crossorigin="anonymous"></script>
+          <!-- scripts  -->
+    
+    <script src="https://kit.fontawesome.com/9d8f9400d0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-       <!------------- main js script -------------->
-
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 
   </body>
 </html>
